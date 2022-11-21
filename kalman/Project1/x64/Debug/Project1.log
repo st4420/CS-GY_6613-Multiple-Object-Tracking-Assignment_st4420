@@ -1,0 +1,63 @@
+﻿  main.cpp
+c:\users\administrator\desktop\卡尔曼滤波\1\project1\main.cpp(72): warning C4305: “参数”: 从“double”到“float”截断
+c:\users\administrator\desktop\卡尔曼滤波\1\project1\main.cpp(73): warning C4305: “参数”: 从“double”到“float”截断
+c:\users\administrator\desktop\卡尔曼滤波\1\project1\main.cpp(98): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+c:\users\administrator\desktop\卡尔曼滤波\1\project1\main.cpp(131): warning C4244: “=”: 从“_Tp”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=float
+          ]
+          and
+          [
+              _Tp=int
+          ]
+c:\users\administrator\desktop\卡尔曼滤波\1\project1\main.cpp(132): warning C4244: “=”: 从“_Tp”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=float
+          ]
+          and
+          [
+              _Tp=int
+          ]
+c:\users\administrator\desktop\卡尔曼滤波\1\project1\main.cpp(191): warning C4244: “=”: 从“_Tp”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=float
+          ]
+          and
+          [
+              _Tp=int
+          ]
+c:\users\administrator\desktop\卡尔曼滤波\1\project1\main.cpp(192): warning C4244: “=”: 从“_Tp”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=float
+          ]
+          and
+          [
+              _Tp=int
+          ]
+c:\users\administrator\desktop\卡尔曼滤波\1\project1\main.cpp(193): warning C4244: “=”: 从“_Tp”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=float
+          ]
+          and
+          [
+              _Tp=int
+          ]
+c:\users\administrator\desktop\卡尔曼滤波\1\project1\main.cpp(194): warning C4244: “=”: 从“_Tp”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=float
+          ]
+          and
+          [
+              _Tp=int
+          ]
+  Project1.vcxproj -> C:\Users\Administrator\Desktop\卡尔曼滤波\1\x64\Debug\Project1.exe
