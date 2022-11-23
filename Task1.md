@@ -81,10 +81,10 @@ process2(Mat img) Two balls prediction function
 
 1.Kalman coefficients initialization  
 2.Ball image’s gray processing  
-3. Ball image’s binaryzation  
-4. Remove fine noise  
-5. Extract the center coordinates of the ball  
-6. Enter the center coordinates of the ball into the input of Kalman  
+3.Ball image’s binaryzation  
+4.Remove fine noise  
+5.Extract the center coordinates of the ball  
+6.Enter the center coordinates of the ball into the input of Kalman  
 7.Kalman update  
 8.Kalman output calculation  
 9.output display  
@@ -95,15 +95,15 @@ If the ball is present, execute step 5.
 
 ### Double balls
 
-1.kalman1 Coefficients initialization，kalman2 Coefficients initialization  
-2. Ball image’s gray processing  
-3. Ball image’s binaryzation  
-4. Remove fine noise  
+1.kalman1 Coefficients initialization, kalman2 Coefficients initialization  
+2.Ball image’s gray processing  
+3.Ball image’s binaryzation  
+4.Remove fine noise  
 5.Extract rectangle coordinates of the ball (rect1，rect2)  
 6.Enter the center coordinates of the ball into the input of Kalman1 and kalman2, respectively.  
-7. Kalman update  
-8. Kalman output calculation  
-9. output display  
+7.Kalman update  
+8.Kalman output calculation  
+9.output display  
 
 Among them,  
 rect3，rect4 are the predicted rectangle  
