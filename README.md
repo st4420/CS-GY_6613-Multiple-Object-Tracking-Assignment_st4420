@@ -1,31 +1,114 @@
-# Multiple Object Tracking
+# Task 1: Understand the problem and setup environment
 
-Multi-Object Tracking (MOT) is a core visual ability that humans poses to perform kinetic tasks and coordinate other tasks. The AI community has recognized the importance of MOT via a series of [competitions](https://motchallenge.net). 
+## UNet Environment installation
+#conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=10.2 -c pytorch  
 
- The ability to reason even in the absence of perception input task was highlighted in Lecture 1 using a document camera and a canopy type of occlusion where an object moves below it. In this assignment, the object class is `ball` and the ability to reason over time will be demonstrated using [Kalman Filters](https://en.wikipedia.org/wiki/Kalman_filter). There will be two cases of occlusion: occlusion by a different object and occlusion by the same object (typical case of the later is on tracking people in crowds). 
+opencv-python  
 
-## Task 1: Understand the problem and setup environment (20 points)
+pillow  
 
-The problem is best described using this explanatory video below of the raw source files of this assignment:
+pyqt5  
 
-1. [Single object tracking](https://github.com/sseshadr/auvsi-cv-all/blob/master/objectTracking/examples/ball.mp4)
-2. [Multi-object tracking](https://github.com/sseshadr/auvsi-cv-all/blob/master/objectTracking/examples/multiObject.avi)
+tqdm  
 
-```{eval-rst}
-.. youtube:: 0jAC9sMQQuM
+pillow  
+
+## Kalman Environment installation
+vs2017, or above  
+
+opencv3.4.1  
+
+## UNet Implement
+
+```
+train  /Implement network training 
 ```
 
-The associated to the video github is [here](https://github.com/sseshadr/auvsi-cv-all). 
-
-## Task 2: Object Detector (40 points)
-
-In this task you will use a CNN-based object detector to bound box all `ball` instances in each frame. Because the educational value is  not object detection, you are allowed to use an object detector of your choice trained to distinguish the `ball` class. You are free to use a pre-trained model (eg on MS COCO that contains the class `sports ball` or train a model yourself.  Ensure that you explain thoroughly the code. 
-
-
-## Task 3: Tracker (40 points)
-
-The detector outputs can be used to obtain the centroid(s) of the `ball` instances across time. You can assign a suitable starting state in the 1st frame of the video and obtain the predicted trajectory of the object during both visible and occluded frames. You need to superpose your predicted position of the object in each frame and the raw frame and store a sequence of all frames (generate a video).  Ensure that you explain thoroughly the code. 
-
-```{note}
-You can use OpenCV (`import cv2`) for only the satellite parts of this assignment - Use numpy, or better, jax to code the Kalman filter. You need to submit the assignment either as a notebook URL or a Github URL. 
+**Among the run_data, there are Test_Images,Test_Labels,Training_Images,Training_Labels.**  
+```Training_Images  /Store the training image  
+Training_Labels  /Store the training labels  
+Test_Images  /Store the testing picture  
+Test_Labels  /Store the testing labels  
 ```
+**Modify train.py**  
+```
+data_path = "C:/Users/Administrator/Desktop/unet/run_data" # todo  /Modify to your local dataset location  
+```
+
+**Modify test.py**  
+```
+def cal_miou(test_dir="C:/Users/Administrator/Desktop/unet/Test_Images",# todo  /Modify to your local dataset location  
+                pred_dir="C:/Users/Administrator/Desktop/unet/results",  
+             gt_dir="C:/Users/Administrator/Desktop/unet/Test_Labels"):  
+```
+             
+**Main files in the directory:**  
+predict.py (Prediction file).  
+run_predict.py (Video prediction file)  
+test.py (Testing prediction file)    
+train.py (Training training files)    
+
+## UNet operating steps
+1.First make the dataset’s training image and label file  
+
+2.Divide the dataset into training and testing  
+
+3.Training the dataset train.py  
+
+4.Test the dataset test.py  
+
+5.run_predict.py (Run the ball video to see the recognition result)
+
+
+
+## Kalman filtering Implement
+
+In Kalman class, input is the input state.  
+
+In Kalman class, output is the predicted state.  
+
+In Kalman class, init() is the initialization function.  
+
+In Kalman class, update() is a function that calculates the prediction result.  
+
+process1(Mat img) A function that processes ball’s white paper occlusion  
+
+process2(Mat img) Two balls prediction function  
+
+## Implementation logic
+
+### Ball’s white paper occlusion
+
+1.Kalman coefficients initialization  
+2.Ball image’s gray processing  
+3. Ball image’s binaryzation  
+4. Remove fine noise  
+5. Extract the center coordinates of the ball  
+6. Enter the center coordinates of the ball into the input of Kalman  
+7.Kalman update  
+8.Kalman output calculation  
+9.output display  
+
+Among them,  
+If the ball is not present，the input in the step 5 = the output of the coordinates predicted last time + the output of the last predicted speed.  
+If the ball is present, execute step 5.  
+
+### Double balls
+
+1.kalman1 Coefficients initialization，kalman2 Coefficients initialization  
+2. Ball image’s gray processing  
+3. Ball image’s binaryzation  
+4. Remove fine noise  
+5.Extract rectangle coordinates of the ball (rect1，rect2)  
+6.Enter the center coordinates of the ball into the input of Kalman1 and kalman2, respectively.  
+7. Kalman update  
+8. Kalman output calculation  
+9. output display  
+
+Among them,  
+rect3，rect4 are the predicted rectangle  
+rect1，rect2 are the destination rectangle  
+rect[0],rect[1] are the rectangle detected by the image  
+The updates of rect1 and rect2’s recognition depend on rect[0] and rect[1] at the beginning. Later updates depend on the IoU of rectangles between rect3, rect4 and rect[0], rect[1]. The higher loU one will update to rect1, rect2.  
+
+
