@@ -122,4 +122,4 @@ The updates of rect1 and rect2’s recognition depend on rect[0] and rect[1] at 
 
 ### Demo 
 
-![2](https://github.com/st4420/CS-GY_6613-Multiple-Object-Tracking-Assignment_st4420/blob/main/demo/Task3_kalman.mp4)
+![2](https://github.com/st4420/CS-GY_6613-Multiple-Object-Tracking-Assignment_st4420/blob/main/demo/Task3_kalman_gif.gif)
