@@ -2,6 +2,8 @@
 
 ## Task 1: Understand the problem and setup environment
 
+All in the README
+
 ## Task 2: Object Detector
 
 ### UNet Environment installation 
