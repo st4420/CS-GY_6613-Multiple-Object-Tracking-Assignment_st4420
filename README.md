@@ -58,7 +58,7 @@ _train.py_ -- Training training file
 
 ### Demo 
 
-
+![1](https://github.com/st4420/CS-GY_6613-Multiple-Object-Tracking-Assignment_st4420/blob/main/demo/Task2_unet.jpg)
 
 ## Task 3: Tracker
 
@@ -72,17 +72,17 @@ OpenCV 3.4.1
 
 ### Kalman filtering Implement
 
-In Kalman class, input is the input state.  
+In Kalman class, `input` is the input state.  
 
-In Kalman class, output is the predicted state.  
+In Kalman class, `output` is the predicted state.  
 
-In Kalman class, init() is the initialization function.  
+In Kalman class, `init()` is the initialization function.  
 
-In Kalman class, update() is a function that calculates the prediction result.  
+In Kalman class, `update()` is a function that calculates the prediction result.  
 
-process1(Mat img) A function that processes ball’s white paper occlusion  
+`process1(Mat img)` is a function that processes ball’s white paper occlusion.  
 
-process2(Mat img) Two balls prediction function  
+`process2(Mat img)` is the two balls prediction function.  
 
 ### Implementation logic
 
@@ -120,4 +120,6 @@ rect1，rect2 are the destination rectangle
 rect[0],rect[1] are the rectangle detected by the image  
 The updates of rect1 and rect2’s recognition depend on rect[0] and rect[1] at the beginning. Later updates depend on the IoU of rectangles between rect3, rect4 and rect[0], rect[1]. The higher loU one will update to rect1, rect2.  
 
+### Demo 
 
+![2](https://github.com/st4420/CS-GY_6613-Multiple-Object-Tracking-Assignment_st4420/blob/main/demo/Task3_kalman.mp4)
