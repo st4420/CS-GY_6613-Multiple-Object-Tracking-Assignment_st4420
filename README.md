@@ -1,67 +1,76 @@
-# Task 1: Understand the problem and setup environment
+# Multiple Object Tracking
 
-## UNet Environment installation
-#conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=10.2 -c pytorch  
+## Task 1: Understand the problem and setup environment
 
+## Task 2: Object Detector
+
+### UNet Environment installation 
+
+```
+# conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=10.2 -c pytorch  
 opencv-python  
-
 pillow  
-
 pyqt5  
-
 tqdm  
-
 pillow  
-
-## Kalman Environment installation
-vs2017, or above  
-
-opencv3.4.1  
-
-## UNet Implement
-
-```
-train  /Implement network training 
 ```
 
-**Among the run_data, there are Test_Images,Test_Labels,Training_Images,Training_Labels.**  
-```Training_Images  /Store the training image  
+
+### UNet Implement 
+
+train -- Implement network training   
+Among the run_data, there are Test_Images, Test_Labels, Training_Images and Training_Labels.    
+```
+Training_Images  /Store the training image  
 Training_Labels  /Store the training labels  
 Test_Images  /Store the testing picture  
 Test_Labels  /Store the testing labels  
 ```
-**Modify train.py**  
+#### Modify _train.py_
 ```
 data_path = "C:/Users/Administrator/Desktop/unet/run_data" # todo  /Modify to your local dataset location  
 ```
 
-**Modify test.py**  
+#### Modify _test.py_
 ```
 def cal_miou(test_dir="C:/Users/Administrator/Desktop/unet/Test_Images",# todo  /Modify to your local dataset location  
                 pred_dir="C:/Users/Administrator/Desktop/unet/results",  
              gt_dir="C:/Users/Administrator/Desktop/unet/Test_Labels"):  
 ```
              
-**Main files in the directory:**  
-predict.py (Prediction file).  
-run_predict.py (Video prediction file)  
-test.py (Testing prediction file)    
-train.py (Training training files)    
+#### Main files in the directory:  
+_predict.py_ -- Prediction file   
+_run_predict.py_ -- Video prediction file  
+_test.py_ -- Testing prediction file    
+_train.py_ -- Training training file    
 
-## UNet operating steps
+### UNet operating steps 
+
 1.First make the dataset’s training image and label file  
 
 2.Divide the dataset into training and testing  
 
-3.Training the dataset train.py  
+3.Training the dataset _train.py_  
 
-4.Test the dataset test.py  
+4.Test the dataset _test.py_  
 
-5.run_predict.py (Run the ball video to see the recognition result)
+5._run_predict.py_ -- Run the ball video to see the recognition result
+
+### Demo 
 
 
 
-## Kalman filtering Implement
+## Task 3: Tracker
+
+
+### Kalman Environment installation 
+VS 2017, or above  
+
+OpenCV 3.4.1  
+
+
+
+### Kalman filtering Implement
 
 In Kalman class, input is the input state.  
 
@@ -75,9 +84,9 @@ process1(Mat img) A function that processes ball’s white paper occlusion
 
 process2(Mat img) Two balls prediction function  
 
-## Implementation logic
+### Implementation logic
 
-### Ball’s white paper occlusion
+#### Ball’s white paper occlusion
 
 1.Kalman coefficients initialization  
 2.Ball image’s gray processing  
@@ -93,7 +102,7 @@ Among them,
 If the ball is not present，the input in the step 5 = the output of the coordinates predicted last time + the output of the last predicted speed.  
 If the ball is present, execute step 5.  
 
-### Double balls
+#### Double balls
 
 1.kalman1 Coefficients initialization, kalman2 Coefficients initialization  
 2.Ball image’s gray processing  
